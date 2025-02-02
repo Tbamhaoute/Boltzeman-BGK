@@ -1,0 +1,51 @@
+# Définir le terminal et la taille de la fenêtre
+
+# Titre global pour le graphique
+set multiplot layout 3, 2 title "Comparaison des courbes : Densité, Vitesse et Température"
+
+# Définir les styles de lignes avec des couleurs
+set style line 1 lt 1 lw 2 linecolor rgb "blue"     # Ligne continue, couleur bleue
+set style line 2 lt 1 lw 2 dashtype 3 linecolor rgb "red"    # Ligne Dash-Dot, couleur rouge
+set style line 3 lt 1 lw 2 linecolor rgb "green"    # Ligne continue, couleur verte
+
+# Tracer la première courbe (Densité BGK)
+set xlabel "Position (x)"
+set ylabel "Densité"
+plot 'rho_transport_bgk.dat' using 1:2 title 'Densité BGK' with lines linestyle 1, \
+     'rho_transport_col_1.00000E+05.dat' using 1:2 title 'Densité Col eps=1E5' with lines linestyle 2, \
+     'rho_transport.dat' using 1:2 title 'Densité exacte' with lines linestyle 3
+
+# Tracer la deuxième courbe (Densité Col)
+set xlabel "Position (x)"
+set ylabel "Densité"
+plot 'rho_euler.dat' using 1:2 title 'Densité Euler' with lines linestyle 1, \
+     'rho_transport_col_5.00000E-05.dat' using 1:2 title 'Densité Col eps=5E-5' with lines linestyle 3
+
+# Tracer la troisième courbe (Vitesse BGK)
+set xlabel "Position (x)"
+set ylabel "Vitesse"
+plot 'u_transport_bgk.dat' using 1:2 title 'Vitesse BGK' with lines linestyle 1, \
+     'u_transport_col_1.00000E+05.dat' using 1:2 title 'Vitesse Col eps=1E5' with lines linestyle 2, \
+     'u_transport.dat' using 1:2 title 'Vitesse exacte' with lines linestyle 3
+
+# Tracer la quatrième courbe (Vitesse Col)
+set xlabel "Position (x)"
+set ylabel "Vitesse"
+plot 'u_euler.dat' using 1:2 title 'Vitesse Euler' with lines linestyle 1, \
+     'u_transport_col_5.00000E-05.dat' using 1:2 title 'Vitesse Col eps=5E-5' with lines linestyle 3
+
+# Tracer la cinquième courbe (Température BGK)
+set xlabel "Position (x)"
+set ylabel "Température"
+plot 't_transport_bgk.dat' using 1:2 title 'Température BGK' with lines linestyle 1, \
+     't_transport_col_1.00000E+05.dat' using 1:2 title 'Température Col eps=1E5' with lines linestyle 2, \
+     't_transport.dat' using 1:2 title 'Température exacte' with lines linestyle 3
+
+# Tracer la sixième courbe (Température Col)
+set xlabel "Position (x)"
+set ylabel "Température"
+plot 't_euler.dat' using 1:2 title 'Température Euler' with lines linestyle 1, \
+     't_transport_col_5.00000E-05.dat' using 1:2 title 'Température Col eps=5E-5' with lines linestyle 3
+
+# Désactiver le mode multiplot après avoir tracé tous les sous-graphiques
+unset multiplot

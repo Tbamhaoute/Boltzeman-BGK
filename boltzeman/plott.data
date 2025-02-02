@@ -1,0 +1,20 @@
+# Définir les labels
+set xlabel "Position (x)"
+set ylabel "Température"
+
+# Tracer les courbes avec des couleurs et des petits symboles sous forme de points
+plot 't_euler.dat' using 1:2 title 'Température Euler' with linespoints linestyle 1 linecolor rgb "black" pointtype 7 pointsize 0.5, \
+     't_transport_col_1.00000E-01.dat' using 1:2 title 'Température Col eps=1E-1' with linespoints linestyle 3 linecolor rgb "blue" pointtype 7 pointsize 0.5, \
+     't_transport_col_1.00000E-02.dat' using 1:2 title 'Température Col eps=1E-2' with linespoints linestyle 3 linecolor rgb "red" pointtype 7 pointsize 0.5, \
+     't_transport_col_1.00000E-03.dat' using 1:2 title 'Température Col eps=1E-3' with linespoints linestyle 3 linecolor rgb "green" pointtype 7 pointsize 0.5, \
+     't_transport_col_1.00000E-04.dat' using 1:2 title 'Température Col eps=1E-4' with linespoints linestyle 3 linecolor rgb "orange" pointtype 7 pointsize 0.5, \
+     't_transport_col_1.00000E-05.dat' using 1:2 title 'Température Col eps=1E-5' with linespoints linestyle 3 linecolor rgb "purple" pointtype 7 pointsize 0.5, \
+     't_transport_col_1.00000E-06.dat' using 1:2 title 'Température Col eps=1E-6' with linespoints linestyle 3 linecolor rgb "brown" pointtype 7 pointsize 0.5
+
+#plot 'rho_euler.dat' using 1:2 title 'Densité Euler' with linespoints linestyle 1 linecolor rgb "black" pointtype 7 pointsize 0.5, \
+#     'rho_transport_col_1.00000E-01.dat' using 1:2 title 'Densité Col eps=1E-1' with linespoints linestyle 1 linecolor rgb "blue" pointtype 7 pointsize 0.5, \
+#     'rho_transport_col_1.00000E-02.dat' using 1:2 title 'Densité Col eps=1E-2' with linespoints linestyle 1 linecolor rgb "red" pointtype 7 pointsize 0.5, \
+#     'rho_transport_col_1.00000E-03.dat' using 1:2 title 'Densité Col eps=1E-3' with linespoints linestyle 1 linecolor rgb "green" pointtype 7 pointsize 0.5, \
+#     'rho_transport_col_1.00000E-04.dat' using 1:2 title 'Densité Col eps=1E-4' with linespoints linestyle 1 linecolor rgb "orange" pointtype 7 pointsize 0.5, \
+#     'rho_transport_col_1.00000E-05.dat' using 1:2 title 'Densité Col eps=1E-5' with linespoints linestyle 1 linecolor rgb "purple" pointtype 7 pointsize 0.5, \
+#     'rho_transport_col_1.00000E-06.dat' using 1:2 title 'Densité Col eps=1E-6' with linespoints linestyle  linecolor rgb "brown" pointtype 7 pointsize 0.5
