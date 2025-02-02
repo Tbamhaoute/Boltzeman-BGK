@@ -9,7 +9,7 @@ program bgk
   real, dimension(6) :: epsilon_values = [1E-1, 1E-2, 1E-3, 1E-4, 1E-5, 1E-6]
   real(pr) :: tmax, cfl
   real(pr), allocatable :: fn(:,:), fnpun(:,:),rho(:), rhou(:), T(:), E(:), v(:)
-  integer :: i, j
+  integer :: i,j
   real(pr) :: start_time, end_time, duration
 
   ! --- Définir le nombre de threads OpenMP ---
@@ -98,7 +98,7 @@ program bgk
     real(pr), dimension(0:nx, 0:nv), intent(inout) :: fn
     real(pr), dimension(0:nx), intent(out) :: rho, rhou, T, E
     real(pr), intent(in) :: dv
-    integer :: i, j
+    integer :: i
 
     !$OMP PARALLEL DO PRIVATE(i) SHARED(fn, v, rho, rhou, T, E, dv)
     
@@ -186,8 +186,6 @@ subroutine avec_collision(nx, nv, tmax, epsilon, tg, td, rhog, rhod,ug ,ud, vmax
     real(pr), dimension(0:nv) :: v 
     real(pr) :: tcount, dt
     integer :: i, j,iter
-    character(len=50) :: rho_file, u_file, t_file, epsilon_str
-
     tcount = 0.0_pr
     a = -1._pr
     b = 1._pr
